@@ -14,16 +14,13 @@
             $value = '%'.$_GET['username'].'%';
             $stmt->bindParam(1,$value);
             $stmt->execute();
-        }
-        
-        while($row = $stmt->fetch()){?>
-            <div>
-                <img src="member_photo/<?=$row['username']?>.jpg" alt=<?=$row['username']?>><br>
-                ชื่อสมาชิก: <?=$row['name']?><br>
-                ที่อยู่: <?=$row['address']?><br>
-                อีเมล์: <?=$row['email']?>
-            </div>
-       <?php } ?>
-   
+            $row = $stmt->fetch();
+        }?>
+        <div>
+            <img src="member_photo/<?=$row['username']?>.jpg" alt=<?=$row['username']?>><br>
+            ชื่อสมาชิก: <?=$row['name']?><br>
+            ที่อยู่: <?=$row['address']?><br>
+            อีเมล์: <?=$row['email']?>
+        </div>
 </body>
 </html>
